@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+	],
+	"settings": {
+		"files.watcherExclude": {
+			"wp": true
+		},
+		"files.exclude": {
+			"**/node_modules/**": true
+		},
+		"search.exclude": {
+			"**/wp/wp-includes": true,
+			"**/wp/wp-admin": true,
+			"**/wp/wp-content/plugins": true,
+			"**/wp/wp-content/uploads": true,
+			"**/wp/wp-content/themes/twenty**": true,
+		},
+		"phpcbf.standard": "WordPress",
+		"phpcs.standard": "WordPress",
+		"phpcs.ignorePatterns": [
+			"*/wp/wp-includes/**"
+		],
+		"phpcs.showWarnings": false,
+		"html.format.contentUnformatted": "pre,code,textarea,svg"
+	}
+}

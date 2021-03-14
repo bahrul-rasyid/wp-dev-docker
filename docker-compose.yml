@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+
+    wordpress:
+        container_name: wp_newsite
+        build: .
+        image: wordpress-xdebug:latest
+        # restart: on-failure
+        ports:
+            - 80:80
+        environment:
+            WORDPRESS_DB_HOST: wp_newsite_mysql
+            WORDPRESS_DB_USER: dbuser
+            WORDPRESS_DB_PASSWORD: dbpass
+            WORDPRESS_DB_NAME: wpsite
+            # XDEBUG_CONFIG: remote_host=host.docker.internal
+            # docker0 ip
+            XDEBUG_CONFIG: remote_host=172.18.0.1
+        networks: 
+            - wp_newsite
+        volumes:
+            - ./wp:/var/www/html
+            #- /var/www/html/wp-content/themes/THEMENAME/node_modules
+    
+    mysql:
+        image: mysql:5.7
+        container_name: wp_newsite_mysql
+        # restart: unless-stopped
+        volumes:
+            - ../wp-newsite-mysql:/var/lib/mysql/
+        environment:
+            MYSQL_DATABASE: wpsite
+            MYSQL_USER: dbuser
+            MYSQL_PASSWORD: dbpass
+            MYSQL_ROOT_PASSWORD: root
+        networks:
+            - wp_newsite
+
+    phpmyadmin:
+        container_name: wp_newsite_phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        depends_on: 
+            - mysql
+        # restart: unless-stopped
+        ports:
+            - 8181:80
+        environment:
+            PMA_HOST: mysql
+        networks:
+            - wp_newsite
+
+networks:
+    wp_newsite:
+        name: wp_newsite
