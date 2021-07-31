@@ -3,42 +3,40 @@ version: '3.8'
 services:
 
     wordpress:
-        container_name: wp_newsite
+        container_name: ${name}
         build: .
         image: wordpress-xdebug:latest
         # restart: on-failure
         ports:
             - 80:80
         environment:
-            WORDPRESS_DB_HOST: wp_newsite_mysql
-            WORDPRESS_DB_USER: dbuser
-            WORDPRESS_DB_PASSWORD: dbpass
-            WORDPRESS_DB_NAME: wpsite
-            # XDEBUG_CONFIG: remote_host=host.docker.internal
-            # docker0 ip
-            XDEBUG_CONFIG: remote_host=172.18.0.1
+            WORDPRESS_DB_HOST: ${name}_mysql
+            WORDPRESS_DB_USER: ${db_user}
+            WORDPRESS_DB_PASSWORD: ${db_pass}
+            WORDPRESS_DB_NAME: ${db_name}
+            XDEBUG_CONFIG: client_host=${xdebug_client_host}
         networks: 
-            - wp_newsite
+            - wp_site
         volumes:
             - ./wp:/var/www/html
-            #- /var/www/html/wp-content/themes/THEMENAME/node_modules
+            - ./xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
     
     mysql:
         image: mysql:5.7
-        container_name: wp_newsite_mysql
+        container_name: ${name}_mysql
         # restart: unless-stopped
         volumes:
-            - ../wp-newsite-mysql:/var/lib/mysql/
+            - ../mysql:/var/lib/mysql/
         environment:
-            MYSQL_DATABASE: wpsite
-            MYSQL_USER: dbuser
-            MYSQL_PASSWORD: dbpass
+            MYSQL_DATABASE: ${db_name}
+            MYSQL_USER: ${db_user}
+            MYSQL_PASSWORD: ${db_pass}
             MYSQL_ROOT_PASSWORD: root
         networks:
-            - wp_newsite
+            - wp_site
 
     phpmyadmin:
-        container_name: wp_newsite_phpmyadmin
+        container_name: ${name}_phpmyadmin
         image: phpmyadmin/phpmyadmin
         depends_on: 
             - mysql
@@ -48,8 +46,8 @@ services:
         environment:
             PMA_HOST: mysql
         networks:
-            - wp_newsite
+            - wp_site
 
 networks:
-    wp_newsite:
-        name: wp_newsite
+    wp_site:
+        name: ${name}
