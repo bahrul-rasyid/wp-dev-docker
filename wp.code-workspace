@@ -24,6 +24,10 @@
 			"*/wp/wp-includes/**"
 		],
 		"phpcs.showWarnings": false,
-		"html.format.contentUnformatted": "pre,code,textarea,svg"
+		"html.format.contentUnformatted": "pre,code,textarea,svg",
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"[javascript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		}
 	}
 }
