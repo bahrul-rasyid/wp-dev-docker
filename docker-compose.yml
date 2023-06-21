@@ -25,7 +25,7 @@ services:
             - ./php.ini:/usr/local/etc/php/conf.d/custom-php.ini
     
     mysql:
-        image: mysql:5.7
+        image: mysql:8
         container_name: ${name}_mysql
         # restart: unless-stopped
         volumes:
