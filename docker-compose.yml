@@ -5,7 +5,7 @@ services:
     wordpress:
         container_name: ${name}
         build: .
-        image: wordpress-xdebug:6
+        image: wordpress-xdebug:6.3
         # restart: on-failure
         ports:
             - 80:80
