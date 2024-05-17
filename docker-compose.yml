@@ -1,11 +1,9 @@
-version: '3.8'
-
 services:
 
     wordpress:
         container_name: ${name}
         build: .
-        image: wordpress-xdebug:6.3
+        image: wordpress-xdebug:6.5.3
         # restart: on-failure
         ports:
             - 80:80
@@ -17,10 +15,15 @@ services:
             WORDPRESS_DEBUG: true
             XDEBUG_CONFIG: client_host=${xdebug_client_host}
             XDEBUG_MODE: ${xdebug_mode}
+            WP_TESTS_DIR: /var/www/vendor/wp-phpunit/wp-phpunit
+            WP_TESTS_PHPUNIT_POLYFILLS_PATH: /var/www/vendor/yoast/phpunit-polyfills
+            WP_PHPUNIT__TESTS_CONFIG: /var/www/wp-tests-config.php
         networks: 
             - wp_site
         volumes:
             - ./wp:/var/www/html
+            - ./vendor:/var/www/vendor
+            - ./wp-tests-config.php:/var/www/wp-tests-config.php
             - ./xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
             - ./php.ini:/usr/local/etc/php/conf.d/custom-php.ini
     

@@ -2,7 +2,7 @@
 	"folders": [
 		{
 			"path": "."
-		},
+		}
 	],
 	"settings": {
 		"files.watcherExclude": {
@@ -18,16 +18,22 @@
 			"**/wp/wp-content/uploads": true,
 			"**/wp/wp-content/themes/twenty**": true,
 		},
-		"phpcbf.standard": "WordPress",
-		"phpcs.standard": "WordPress",
+		"phpcbf.standard": "WordPress-core",
+		"phpcs.standard": "WordPress-core",
 		"phpcs.ignorePatterns": [
-			"*/wp/wp-includes/**"
+			"**/vendor/**",
+			"**/wp/wp-admin/**",
+			"**/wp/wp-includes/**",
+			"**/wp/wp-content/themes/**",
+			"**/wp/wp-content/plugins/**",
 		],
 		"phpcs.showWarnings": false,
 		"html.format.contentUnformatted": "pre,code,textarea,svg",
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"[javascript]": {
 			"editor.defaultFormatter": "esbenp.prettier-vscode"
-		}
+		},
+		"phpcs.executablePath": "vendor/bin/phpcs",
+		"phpcbf.executablePath": "vendor/bin/phpcbf",
 	}
 }

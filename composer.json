@@ -1,0 +1,22 @@
+{
+    "name": "mbdigilab/wp-dev-docker",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Bahrul Rasyid",
+            "email": "bahrul221mb@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.1",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "wp-phpunit/wp-phpunit": "^6.5",
+        "phpunit/phpunit": "^9",
+        "yoast/phpunit-polyfills": "^2.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
