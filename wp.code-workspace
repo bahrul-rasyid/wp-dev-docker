@@ -22,6 +22,7 @@
 		"phpcs.standard": "WordPress-core",
 		"phpcs.ignorePatterns": [
 			"**/vendor/**",
+			"**/wp/*.php",
 			"**/wp/wp-admin/**",
 			"**/wp/wp-includes/**",
 			"**/wp/wp-content/themes/**",
