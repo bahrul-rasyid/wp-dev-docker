@@ -21,11 +21,13 @@ services:
         networks: 
             - wp_site
         volumes:
+            - ./xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+            - ./php.ini:/usr/local/etc/php/conf.d/custom-php.ini
             - ./wp:/var/www/html
             - ./vendor:/var/www/vendor
             - ./wp-tests-config.php:/var/www/wp-tests-config.php
-            - ./xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
-            - ./php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+            - ./composer.json:/var/www/composer.json
+            - ./composer.lock:/var/www/composer.lock
     
     mysql:
         image: mysql:8
