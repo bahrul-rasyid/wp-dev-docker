@@ -3,7 +3,7 @@ services:
     wordpress:
         container_name: ${name}
         build: .
-        image: wordpress-xdebug:6.5.3
+        image: wordpress-xdebug:6.6.0
         # restart: on-failure
         ports:
             - 80:80
@@ -54,6 +54,8 @@ services:
             - 8181:80
         environment:
             PMA_HOST: mysql
+            MAX_EXECUTION_TIME: 120
+            UPLOAD_LIMIT: 256M
         networks:
             - wp_site
 

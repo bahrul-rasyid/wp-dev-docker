@@ -1,4 +1,4 @@
-FROM wordpress:6.5.3
+FROM wordpress:6.6.0
 
 RUN pecl install "xdebug" \
     && docker-php-ext-enable xdebug
