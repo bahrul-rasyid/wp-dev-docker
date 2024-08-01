@@ -18,11 +18,11 @@
 			"**/wp/wp-content/uploads": true,
 			"**/wp/wp-content/themes/twenty**": true,
 		},
-		"phpcbf.standard": "WordPress-core",
-		"phpcs.standard": "WordPress-core",
+		"phpcbf.standard": "WordPress-Core",
+		"phpcs.standard": "WordPress-Core",
 		"phpcs.ignorePatterns": [
 			"**/vendor/**",
-			"**/wp/*.php",
+			"wp/wp-config.php",
 			"**/wp/wp-admin/**",
 			"**/wp/wp-includes/**",
 			"**/wp/wp-content/themes/**",
@@ -35,6 +35,6 @@
 			"editor.defaultFormatter": "esbenp.prettier-vscode"
 		},
 		"phpcs.executablePath": "vendor/bin/phpcs",
-		"phpcbf.executablePath": "vendor/bin/phpcbf",
+		"phpcbf.executablePath": "./vendor/bin/phpcbf",
 	}
 }

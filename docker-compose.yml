@@ -30,7 +30,7 @@ services:
             - ./composer.lock:/var/www/composer.lock
     
     mysql:
-        image: mysql:8
+        image: mysql:8.3.0
         container_name: ${name}_mysql
         # restart: unless-stopped
         volumes:

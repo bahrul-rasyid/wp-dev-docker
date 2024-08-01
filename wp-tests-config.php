@@ -46,8 +46,8 @@ define( 'WP_DEBUG', true );
 // DO NOT use a production database or one that is shared with something else.
 
 define( 'DB_NAME', getenv_docker( 'WORDPRESS_TESTS_DB_NAME', 'wp_tests' ) );
-define( 'DB_USER', getenv_docker( 'WORDPRESS_TESTS_DB_USER', 'root' ) );
-define( 'DB_PASSWORD', getenv_docker( 'WORDPRESS_TESTS_DB_PASSWORD', 'root' ) );
+define( 'DB_USER', getenv_docker( 'WORDPRESS_TESTS_DB_USER', 'wp_tests' ) );
+define( 'DB_PASSWORD', getenv_docker( 'WORDPRESS_TESTS_DB_PASSWORD', 'wp_tests' ) );
 define( 'DB_HOST', getenv_docker( 'WORDPRESS_TESTS_DB_HOST', 'mysql' ) );
 define( 'DB_CHARSET', getenv_docker( 'WORDPRESS_TESTS_DB_CHARSET', 'utf8' ) );
 define( 'DB_COLLATE', getenv_docker( 'WORDPRESS_TESTS_DB_COLLATE', '' ) );
