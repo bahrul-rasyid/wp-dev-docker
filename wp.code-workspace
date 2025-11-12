@@ -28,12 +28,13 @@
 			"**/wp/wp-content/themes/**",
 			"**/wp/wp-content/plugins/**",
 		],
-		"phpcs.showWarnings": false,
 		"html.format.contentUnformatted": "pre,code,textarea,svg",
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"[javascript]": {
 			"editor.defaultFormatter": "esbenp.prettier-vscode"
 		},
+		"phpcs.enable": false,
+		"phpcs.showWarnings": false,
 		"phpcs.executablePath": "vendor/bin/phpcs",
 		"phpcbf.executablePath": "./vendor/bin/phpcbf",
 	}
