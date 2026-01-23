@@ -1,3 +1,8 @@
 .env
 /wp/
 /vendor/
+
+/node_modules/
+
+/playwright-report/
+/test-results/
